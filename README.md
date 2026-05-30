@@ -46,39 +46,42 @@ python cliente.py
 
 ## Comandos disponibles desde el cliente
 
-| Comando              | Resultado                              |
-|----------------------|----------------------------------------|
-| eco:<texto>          | Devuelve el texto tal cual             |
-| mayusculas:<texto>   | Convierte a MAYUSCULAS                 |
-| minusculas:<texto>   | Convierte a minusculas                 |
-| invertir:<texto>     | Invierte el texto                      |
-| contar:<texto>       | Cuenta caracteres y palabras           |
-| <cualquier texto>    | Tarea generica procesada por un worker |
-| salir                | Cierra el cliente                      |
+| Comando            | Resultado                              |
+|--------------------|----------------------------------------|
+| eco:<texto>        | Devuelve el texto tal cual             |
+| mayusculas:<texto> | Convierte a MAYUSCULAS                 |
+| minusculas:<texto> | Convierte a minusculas                 |
+| invertir:<texto>   | Invierte el texto                      |
+| contar:<texto>     | Cuenta caracteres y palabras           |
+| <cualquier texto>  | Tarea generica procesada por un worker |
+| salir              | Cierra el cliente                      |
 
-## Archivos
+## Estructura del repositorio
 
 ```
 RedesPFO3/
-├── servidor.py          # Servidor con pool de workers y cola de mensajes
-├── cliente.py           # Cliente interactivo de consola
-├── tareas.db            # Base de datos SQLite (se genera al ejecutar)
-├── diagrama_pfo3.xml    # Diagrama de arquitectura (importable en draw.io)
-└── README.md
+├── servidor.py                        # Servidor con pool de workers y cola de mensajes
+├── cliente.py                         # Cliente interactivo de consola
+├── tareas.db                          # Base de datos SQLite (se genera al ejecutar)
+├── README.md
+└── Documentacion/
+    ├── PFO3_Kalas_Jorge.docx          # Informe en Word
+    ├── PFO3_Kalas_Jorge.pdf           # Informe en PDF
+    └── diagrama_pfo3.xml              # Diagrama de arquitectura (importable en draw.io)
 ```
 
 ## Base de datos
 
 La tabla `tareas` registra cada tarea procesada:
 
-| Campo      | Tipo    | Descripcion                        |
-|------------|---------|------------------------------------|
-| id         | INTEGER | Clave primaria autoincremental     |
-| cliente_ip | TEXT    | IP del cliente que envio la tarea  |
-| tarea      | TEXT    | Texto de la tarea recibida         |
-| resultado  | TEXT    | Resultado devuelto por el worker   |
-| estado     | TEXT    | completada / error                 |
-| fecha      | TEXT    | Timestamp ISO de procesamiento     |
+| Campo      | Tipo    | Descripcion                       |
+|------------|---------|-----------------------------------|
+| id         | INTEGER | Clave primaria autoincremental    |
+| cliente_ip | TEXT    | IP del cliente que envio la tarea |
+| tarea      | TEXT    | Texto de la tarea recibida        |
+| resultado  | TEXT    | Resultado devuelto por el worker  |
+| estado     | TEXT    | completada / error                |
+| fecha      | TEXT    | Timestamp ISO de procesamiento    |
 
 Para consultar los registros:
 
